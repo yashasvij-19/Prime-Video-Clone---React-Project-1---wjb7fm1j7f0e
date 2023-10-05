@@ -1,80 +1,144 @@
 import React from "react";
-import { useState } from "react";
 import "../styles/Navbar.css";
-import Box from "@mui/material/Box";
-import Popper from "@mui/material/Popper";
-import { styled } from "@mui/material/styles";
+import AccountMenu from "./AccountMenu";
+import MenuHome from "./MenuHome";
+import MenuCat from "./MenuCat";
+import IconButton from "@mui/material/IconButton";
+import SearchIcon from "@mui/icons-material/Search";
+import { styled, alpha } from "@mui/material/styles";
+import InputBase from "@mui/material/InputBase";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import UserAccountMenu from "./UserAccountMenu";
+import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { useAuth } from "./Authcontext";
 
 const Navbar = () => {
-  const [anchorEl, setAnchorEl] = useState(null);
-
-  const handleClick = (event) => {
-    setAnchorEl(anchorEl ? null : event.currentTarget);
+  const [searchInput, setSearchInput] = useState("");
+  const [IsLoggedin, setIsLoggedin] = useState(false);
+  const navigate = useNavigate();
+  const handleSearch = () => {
+    if (searchInput.trim() !== "") {
+      navigate(`/search-results/${searchInput}`);
+    }
   };
+  const { loggedMail } = useAuth();
 
-  const handleClick1 = () => {
-    setAnchorEl(null);
-  };
+  useEffect(() => {
+    const userDataString = localStorage.getItem(loggedMail);
+    if (userDataString) {
+      const userData = JSON.parse(userDataString);
+      if (userData.token) {
+        setIsLoggedin(true);
+      }
+    }
+  }, []);
 
-  const open = Boolean(anchorEl);
-  const id = open ? "simple-popper" : undefined;
+  const Search = styled("div")(({ theme }) => ({
+    position: "relative",
+    borderRadius: theme.shape.borderRadius,
+    backgroundColor: alpha(theme.palette.common.white, 0.15),
+    "&:hover": {
+      backgroundColor: alpha(theme.palette.common.white, 0.25),
+    },
+    marginRight: theme.spacing(2),
+    marginLeft: 0,
+    width: "100%",
+    [theme.breakpoints.up("sm")]: {
+      marginLeft: theme.spacing(3),
+      width: "35ch",
+    },
+  }));
 
-  const DialogBox = styled(Box)({
-    position: "static",
-    borderRadius: "8px",
-    backgroundColor: "#191e25",
-    boxShadow: "0 4px 8px 2px rgba(0,5,13,.5)",
-    minWidth: "10%",
-    zIndex: "3",
-    padding: "3px",
-  });
+  const StyledInputBase = styled(InputBase)(({ theme }) => ({
+    color: "inherit",
+    "& .MuiInputBase-input": {
+      padding: theme.spacing(1, 1, 1, 0),
+      paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+      transition: theme.transitions.create("width"),
+      width: "100%",
+      [theme.breakpoints.up("md")]: {
+        width: "20ch",
+      },
+    },
+  }));
 
   return (
     <div className="navbar-main">
       <div className="navbar-links">
         <div id="logo-div">
-          <a href="#">
+          <Link to="/" style={{ textDecoration: "none" }}>
             <img
               src="https://m.media-amazon.com/images/G/01/digital/video/web/Logo-min.png"
               alt="prime-video-logo"
               className="prime-video-logo"
             />
-          </a>
+          </Link>
         </div>
-        <div>
-          <ul className="ul-links">
-            <li aria-describedby={id} onMouseOver={handleClick}>
-              Home &nbsp;<i className="fas fa-angle-down"></i>
-            </li>
-            <Popper id={id} open={open} anchorEl={anchorEl}>
-              <DialogBox>
-                <ul className="home-links" onMouseOver={handleClick1}>
-                  <li>All</li>
-                  <li>Movies</li>
-                  <li>TV Shows</li>
-                </ul>
-              </DialogBox>
-            </Popper>
-            <li aria-describedby={id} onMouseOver={handleClick}>
-              Store &nbsp;<i className="fas fa-angle-down"></i>
-            </li>
-            <Popper id={id} open={open} anchorEl={anchorEl}>
-              <DialogBox>
-                <ul className="home-links">
-                  <li>All</li>
-                  <li>Movies</li>
-                  <li>TV Shows</li>
-                </ul>
-              </DialogBox>
-            </Popper>
-            <li>LiveTv</li>
+        <div className="nav-list">
+          <ul>
+            <Link to="/" style={{ textDecoration: "none" }}>
+              <li>
+                <MenuHome
+                  title={"Home"}
+                  opt={"All"}
+                  optTwo={"Movies"}
+                  optThree={"TV Shows"}
+                />
+              </li>
+            </Link>
+            {IsLoggedin ? (
+              <Link to="/movies" style={{ textDecoration: "none" }}>
+                <li>
+                  <MenuHome
+                    title={"Store"}
+                    opt={"All"}
+                    optTwo={"Rent"}
+                    optThree={"Channels"}
+                  />
+                </li>
+              </Link>
+            ) : (
+              <Link to="/login" style={{ textDecoration: "none" }}>
+                <li>
+                  <MenuHome
+                    title={"Store"}
+                    opt={"All"}
+                    optTwo={"Rent"}
+                    optThree={"Channels"}
+                  />
+                </li>
+              </Link>
+            )}
+            <li className="noOption">LiveTV</li>
             <li>
-              Categories &nbsp;&nbsp; <i className="fas fa-angle-down"></i>
+              <MenuCat />
+            </li>
+            <li id="searchList">
+              {" "}
+              <Search>
+                <StyledInputBase
+                  placeholder="Search…"
+                  value={searchInput}
+                  onChange={(e) => {
+                    setSearchInput(e.target.value);
+                    console.log(e.target.value);
+                  }}
+                />
+                <IconButton
+                  aria-label="search"
+                  color="primary"
+                  onClick={handleSearch}
+                >
+                  <SearchIcon />
+                </IconButton>
+              </Search>
             </li>
           </ul>
+          {IsLoggedin ? <UserAccountMenu /> : <AccountMenu />}
         </div>
       </div>
-      <div className="navbar-profile"></div>
     </div>
   );
 };

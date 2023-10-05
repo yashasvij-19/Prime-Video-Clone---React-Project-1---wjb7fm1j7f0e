@@ -1,0 +1,47 @@
+.main-watchlist{
+    background-color: rgb(38, 38, 38);
+    height: 695px;
+    width:100%;
+}
+.watchlist{
+    margin-top: 50px;
+    padding: 10px;
+    color: white;
+    margin-left: 100px;
+}
+.watchlist-container{
+    display: flex;
+    padding: 10px;
+}
+.watchList{
+    margin-left: 50px;
+    text-align: center;
+}
+.watchList img{
+width:250px;
+height: 180px;
+border-radius: 30px;
+}
+
+#hoveredWatch {
+    border: 1px solid black;
+    height: 300px;
+    width: 300px;
+    border-radius: 10px;
+    background-color: rgb(20, 20, 20);
+    padding: 10px;
+  }
+  
+  #hoveredWatch video {
+    height: 150px;
+    width: 100%; 
+  }
+  
+  #hoveredWatch h2,
+  #hoveredWatch p,
+  #hoverButton {
+    font-size: 13px;
+    position: relative;
+    top: 10px;
+  }
+  
