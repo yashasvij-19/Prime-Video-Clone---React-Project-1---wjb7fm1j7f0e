@@ -1,20 +1,40 @@
-# boilerplate-react-functional-public
+# Project Name
 
-In this app we will be making a Word and Character counter app.
-First there needs to be a <code>textarea</code> element which will take the input
-from user.
+A brief description of your React app.
 
-Below that element, create 2 divs with id="word-counter" and id="char-counter" respectively.
-#word-counter will show the number of words(empty space is not considered a word) and #char-counter will show the number of characters typed.
+## Table of Contents
 
-Also make an input with id="char-limit-input" which takes a number which is the limit of characters we can type in.
-By default char limit should be 50.
+- [Project Overview](#project-overview)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Usage](#usage)
+- [Folder Structure](#folder-structure)
+- [Contributing](#contributing)
+- [License](#license)
 
-And the last input should be a slider input(with id ="fontSize-input") for taking the font size, default and min value should be 16px and max would be 32px.
+## Project Overview
 
-Apply the fontSize property to the textarea element.
+Provide an introduction to your React app. Explain its purpose and what it does. You can also include screenshots or GIFs to showcase the app in action.
 
+## Getting Started
 
+Explain how to get your project up and running.
 
-Demo video:-
-<video src="https://d3dyfaf3iutrxo.cloudfront.net/general/upload/e449406acecb4a1186ae9cc77a55933f.mp4" controls autoplay muted>
+### Prerequisites
+
+List any software or dependencies that need to be installed before running the app. Include versions if necessary.
+
+### Installation
+
+Provide step-by-step instructions on how to install and set up your project.
+
+```bash
+# Clone the repository
+git clone https://github.com/your-username/your-project.git
+
+# Change directory to the project folder
+cd your-project
+
+# Install dependencies
+npm install
