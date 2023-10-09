@@ -38,3 +38,4 @@ cd your-project
 
 # Install dependencies
 npm install
+```
