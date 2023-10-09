@@ -93,22 +93,22 @@ components folder:
 
 LandingPage.js uses following files:
 
-HomeCarousel.js
-HomeimageGrid.js
+-HomeCarousel.js
+-HomeimageGrid.js
 
 Navbar.js uses the following files:
 
-AccountMenu.js(contains Login.js and Register.js)
-UserAccountMenu.js (contains Userprofile.js and Watchlist.js)
-MenuCat.js (file for Categories option)
-MenuHome.js (file for HOME and Store option)
-SearchResults.js (when search icon is clicked)
+-AccountMenu.js(contains Login.js and Register.js)
+-UserAccountMenu.js (contains Userprofile.js and Watchlist.js)
+-MenuCat.js (file for Categories option)
+-MenuHome.js (file for HOME and Store option)
+-SearchResults.js (when search icon is clicked)
 
 Movies.js uses following files:
 
-Carousel.js
-MovieSlider.js
-Content Details.js (when More Details button on Carousel is clicked )
+-Carousel.js
+-MovieSlider.js
+-Content Details.js (when More Details button on Carousel is clicked )
 
 ### Installation
 
