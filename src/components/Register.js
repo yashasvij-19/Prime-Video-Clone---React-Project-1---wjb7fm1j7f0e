@@ -120,7 +120,12 @@ const Register = () => {
             Conditions of Use and Privacy Notice.
           </a>
         </p>
-        <p>Already have an account? Sign In</p>
+        <p>
+          Already have an account?{" "}
+          <Link to="/login" style={{ textDecoration: "none" }}>
+            Sign In
+          </Link>
+        </p>
       </div>
       <div className="theFoot">
         <a

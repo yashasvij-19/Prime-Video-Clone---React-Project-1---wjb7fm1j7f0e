@@ -7,8 +7,8 @@ const Userprofile = () => {
   const [userData, setUserData] = useState({
     name: "",
     email: "",
-    address: "",
-    paymentDetails: "",
+    address: [],
+    paymentDetails: [],
     phone: "",
     profileImage: null,
   });
@@ -21,17 +21,19 @@ const Userprofile = () => {
   const [isEditingPhone, setIsEditingPhone] = useState(false);
   const [newPhone, setNewPhone] = useState("");
   const [isEditingPay, setIsEditingPay] = useState(false);
-  const [newPay, setNewPay] = useState("");
+  const [newPay, setNewPay] = useState({ details: "" });
   const [isEditingAd, setIsEditingAd] = useState(false);
-  const [newAd, setNewAd] = useState("");
+  const [newAd, setNewAd] = useState({ street: "", city: "", state: "" });
   const [isEditingProfile, setIsEditingProfile] = useState(false);
   const [newProfile, setNewProfile] = useState(null);
+  const [token, setToken] = useState("");
 
   useEffect(() => {
     const userDataString = localStorage.getItem(loggedMail);
     if (userDataString) {
       const userData = JSON.parse(userDataString);
       setUserData(userData.data);
+      setToken(userData.token);
     } else {
       console.log("User data not found in localStorage");
     }
@@ -40,9 +42,9 @@ const Userprofile = () => {
   const updateAPI = "https://academics.newtonschool.co/api/v1/user/updateme";
 
   const headers = {
-    Authorization:
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MGRhMTgyZGJlZGNmNGY2MDIzODY0MiIsImlhdCI6MTY5NTM5MjEzMCwiZXhwIjoxNzI2OTI4MTMwfQ.fX3zhW6Z89wFzSa5IZgeS62Lcsa-2P8nOCsbrKVukUk",
-    projectID: "f104bi07c490",
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${token}`,
+    projectId: "f104bi07c490",
   };
 
   const updateUser = async (updatedData) => {
@@ -83,54 +85,28 @@ const Userprofile = () => {
     "https://academics.newtonschool.co/api/v1/user/updateMyPassword";
 
   const handlePassChange = async () => {
+    setIsEditingPass(false);
     try {
-      const response = await fetch(
-        "https://academics.newtonschool.co/api/v1/user/login",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            projectId: "f104bi07c490",
-          },
-          body: JSON.stringify({
-            email: userData.email,
-            password: currPass,
-            appType: "ott",
-          }),
-        }
-      );
+      const response = await fetch(apiUrl, {
+        method: "PATCH",
+        headers: headers,
+        body: JSON.stringify({
+          name: userData.name,
+          email: userData.email,
+          passwordCurrent: currPass,
+          password: newPass,
+          appType: "ott",
+        }),
+      });
 
       if (response.ok) {
-        updateUser({ password: newPass });
-        setIsEditingPass(false);
-        try {
-          const response = await fetch(apiUrl, {
-            method: "PATCH",
-            headers: headers,
-            body: {
-              name: userData.name,
-              email: userData.email,
-              passwordCurrent: currPass,
-              password: newPass,
-              appType: "ott",
-            },
-          });
-
-          if (response.ok) {
-            console.log("Password updated successfully");
-          } else {
-            const errorData = await response.json();
-            console.error("Password update failed:", errorData);
-          }
-        } catch (error) {
-          console.error("An error occurred:", error);
-        }
+        console.log("Password updated successfully");
       } else {
         const errorData = await response.json();
-        console.error(errorData.message);
+        console.error("Password update failed:", errorData);
       }
     } catch (error) {
-      console.error(error.message);
+      console.error("An error occurred:", error);
     }
   };
 
@@ -230,15 +206,69 @@ const Userprofile = () => {
           <div className="box">
             {isEditingAd ? (
               <>
-                <textarea
-                  value={newAd}
-                  onChange={(e) => setNewAd(e.target.value)}
+                <input
+                  type="text"
+                  placeholder="Street"
+                  value={newAd.street || ""}
+                  onChange={(e) =>
+                    setNewAd((prevAd) => ({
+                      ...prevAd,
+                      street: e.target.value,
+                    }))
+                  }
                 />
+                <input
+                  type="text"
+                  placeholder="City"
+                  value={newAd.city || ""}
+                  onChange={(e) =>
+                    setNewAd((prevAd) => ({
+                      ...prevAd,
+                      city: e.target.value,
+                    }))
+                  }
+                />
+                <input
+                  type="text"
+                  placeholder="State"
+                  value={newAd.state || ""}
+                  onChange={(e) =>
+                    setNewAd((prevAd) => ({
+                      ...prevAd,
+                      state: e.target.value,
+                    }))
+                  }
+                />
+
                 <button onClick={handleAdChange}>Change</button>
               </>
             ) : (
               <>
-                <p>Address: {newAd ? newAd : userData.address}</p>
+                <p>
+                  Street:{" "}
+                  {newAd && newAd.street
+                    ? newAd.street
+                    : userData.address[0] && userData.address[0].street
+                    ? userData.address[0].street
+                    : ""}
+                </p>
+                <p>
+                  City:{" "}
+                  {newAd && newAd.city
+                    ? newAd.city
+                    : userData.address[0] && userData.address[0].city
+                    ? userData.address[0].city
+                    : ""}
+                </p>
+                <p>
+                  State:{" "}
+                  {newAd && newAd.state
+                    ? newAd.state
+                    : userData.address[0] && userData.address[0].state
+                    ? userData.address[0].state
+                    : ""}
+                </p>
+
                 <p className="clickP" onClick={() => setIsEditingAd(true)}>
                   Change Address
                 </p>
@@ -276,8 +306,15 @@ const Userprofile = () => {
             ) : (
               <>
                 <p>
-                  Payment Details: {newPay ? newPay : userData.paymentDetails}
+                  Payment Details:{" "}
+                  {newPay && newPay.details
+                    ? newPay.details
+                    : userData.paymentDetails[0] &&
+                      userData.paymentDetails[0].details
+                    ? userData.paymentDetails[0].details
+                    : ""}{" "}
                 </p>
+
                 <p className="clickP" onClick={() => setIsEditingPay(true)}>
                   Change payment details
                 </p>

@@ -47,6 +47,7 @@ function Watchlist() {
   useEffect(() => {
     getWatchlist()
       .then((data) => {
+        console.log(data.data.shows);
         setWatchlistItems(data.data.shows);
         setIsLoading(false);
       })
@@ -66,32 +67,37 @@ function Watchlist() {
         ) : (
           <div className="watchlist-container">
             {Array.isArray(watchlistItems) && watchlistItems.length > 0 ? (
-              watchlistItems.map((showId) => (
-                <div
-                  className="watchList"
-                  key={showId.title}
-                  onMouseOver={() => setMouseOn(showId.title)}
-                  onMouseLeave={() => setMouseOn(null)}
-                >
-                  {mouseOn === showId.title ? (
-                    <div id="hoveredWatch">
-                      <video src={showId.video_url} autoPlay />
-                      <h2>{showId.title}</h2>
-                      <p>{showId.description}</p>
-                      <Button
-                        id="hoverButton"
-                        variant="contained"
-                        color="primary"
-                        onClick={() => handleWatchlist(showId._id)}
-                      >
-                        Remove from Watchlist
-                      </Button>
-                    </div>
-                  ) : (
-                    <img src={showId.thumbnail} />
-                  )}
-                </div>
-              ))
+              watchlistItems.map((showId) => {
+                if (!showId) {
+                  return null;
+                }
+                return (
+                  <div
+                    className="watchList"
+                    key={showId.title}
+                    onMouseOver={() => setMouseOn(showId.title)}
+                    onMouseLeave={() => setMouseOn(null)}
+                  >
+                    {mouseOn === showId.title ? (
+                      <div id="hoveredWatch">
+                        <video src={showId.video_url} autoPlay />
+                        <h2>{showId.title}</h2>
+                        <p>{showId.description}</p>
+                        <Button
+                          id="hoverButton"
+                          variant="contained"
+                          color="primary"
+                          onClick={() => handleWatchlist(showId._id)}
+                        >
+                          Remove from Watchlist
+                        </Button>
+                      </div>
+                    ) : (
+                      <img src={showId.thumbnail} />
+                    )}
+                  </div>
+                );
+              })
             ) : (
               <p>No items in watchlist</p>
             )}

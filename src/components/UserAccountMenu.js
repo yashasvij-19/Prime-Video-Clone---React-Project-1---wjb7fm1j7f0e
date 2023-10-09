@@ -5,6 +5,7 @@ import MenuItem from "@mui/material/MenuItem";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import { useAuth } from "./Authcontext";
 
 import "../styles/Navbar.css";
 import { Link } from "react-router-dom";
@@ -12,12 +13,19 @@ import { AccountCircle } from "@mui/icons-material";
 
 export default function UserAccountMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const { loggedMail } = useAuth();
+  const { setLoggedMail } = useAuth();
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const handleLogOut = () => {
+    localStorage.removeItem(loggedMail);
+    setLoggedMail("");
   };
   return (
     <React.Fragment>
@@ -84,7 +92,9 @@ export default function UserAccountMenu() {
           <MenuItem id="signIn">Watchlist</MenuItem>
         </Link>
         <Link to="/" style={{ textDecoration: "none" }}>
-          <MenuItem id="signIn">Sign Out</MenuItem>
+          <MenuItem id="signIn" onClick={handleLogOut}>
+            Sign Out
+          </MenuItem>
         </Link>
       </Menu>
     </React.Fragment>

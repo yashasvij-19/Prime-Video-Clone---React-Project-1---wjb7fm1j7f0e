@@ -31,13 +31,21 @@
 .navbar-links li:hover{
     background-color: #1b3f805c;
 }
+#searchList input{
+width: 270px;
+height: 23px;
+font-size: medium;
+background-color: #36373a;
+color: whitesmoke;
+font-weight: bold;
+border: 1px solid black;
+border-radius: 10px;
+padding: 8px;
+}
 .noOption{
     color: #aaa;
     font-size: 1.2rem;
     padding: 7px;
-}
-#searchList:hover{
-    background-color: transparent;
 }
 .catGrid{
     display: flex;

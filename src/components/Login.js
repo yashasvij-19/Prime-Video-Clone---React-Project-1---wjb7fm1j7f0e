@@ -47,7 +47,6 @@ const Login = () => {
 
       if (response.ok) {
         const data = await response.json();
-        console.log(data);
         localStorage.setItem(email, JSON.stringify(data));
         setLoggedMail(email);
         navigate("/movies");
@@ -72,7 +71,7 @@ const Login = () => {
       <div className="theBoxLog">
         <span className="theBoxerror">{error}</span>
         <h3>Sign in</h3>
-        <label for="emailInput">Enter your email address</label>
+        <label htmlfor="emailInput">Enter your email address</label>
         <br />
         <input
           type="email"
@@ -81,7 +80,7 @@ const Login = () => {
           value={email}
           onChange={handleChange}
         />
-        <label for="pass">Password</label>
+        <label htmlfor="pass">Password</label>
         <br />
         <input
           type="password"
@@ -92,7 +91,7 @@ const Login = () => {
           onChange={handleChange}
         />
         <br />
-        <label for="passRe">Re-enter password</label>
+        <label htmlfor="passRe">Re-enter password</label>
         <br />
         <input
           type="password"

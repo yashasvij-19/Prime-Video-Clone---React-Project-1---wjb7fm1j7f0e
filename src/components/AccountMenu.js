@@ -57,7 +57,7 @@ export default function AccountMenu() {
             "& .MuiAvatar-root": {
               width: 32,
               height: 32,
-              ml: -0.5,
+              // ml: -0.5,
               mr: 1,
             },
             "&:before": {

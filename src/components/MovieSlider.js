@@ -56,11 +56,11 @@ const MovieSlider = ({ el }) => {
     }
   };
 
-  const toggleWatchlist = (movie) => {
-    if (watchlist.includes(movie.id)) {
-      setWatchlist(watchlist.filter((id) => id !== movie.id));
+  const toggleWatchlist = (movieId) => {
+    if (watchlist.includes(movieId)) {
+      setWatchlist(watchlist.filter((id) => id !== movieId));
     } else {
-      setWatchlist([...watchlist, movie.id]);
+      setWatchlist([...watchlist, movieId]);
     }
   };
 
@@ -75,7 +75,6 @@ const MovieSlider = ({ el }) => {
       body: JSON.stringify({ showId: showId }),
     })
       .then((response) => response.json())
-      .then((data) => setWatchlistItems(data.data.shows))
       .catch((error) => {
         console.error("Error: ", error);
         throw error;
@@ -109,14 +108,14 @@ const MovieSlider = ({ el }) => {
                       variant="contained"
                       color="primary"
                       className={`watchlist-button ${
-                        watchlist.includes(movie.id) ? "added" : ""
+                        watchlist.includes(movie._id) ? "added" : ""
                       }`}
                       onClick={() => {
-                        toggleWatchlist(movie);
+                        toggleWatchlist(movie._id);
                         addWatchlist(movie._id);
                       }}
                     >
-                      {watchlist.includes(movie.id)
+                      {watchlist.includes(movie._id)
                         ? "Added"
                         : "Add to Watchlist"}
                     </Button>

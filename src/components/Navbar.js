@@ -5,8 +5,6 @@ import MenuHome from "./MenuHome";
 import MenuCat from "./MenuCat";
 import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
-import { styled, alpha } from "@mui/material/styles";
-import InputBase from "@mui/material/InputBase";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import UserAccountMenu from "./UserAccountMenu";
@@ -18,6 +16,7 @@ const Navbar = () => {
   const [searchInput, setSearchInput] = useState("");
   const [IsLoggedin, setIsLoggedin] = useState(false);
   const navigate = useNavigate();
+
   const handleSearch = () => {
     if (searchInput.trim() !== "") {
       navigate(`/search-results/${searchInput}`);
@@ -35,35 +34,9 @@ const Navbar = () => {
     }
   }, []);
 
-  const Search = styled("div")(({ theme }) => ({
-    position: "relative",
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: alpha(theme.palette.common.white, 0.15),
-    "&:hover": {
-      backgroundColor: alpha(theme.palette.common.white, 0.25),
-    },
-    marginRight: theme.spacing(2),
-    marginLeft: 0,
-    width: "100%",
-    [theme.breakpoints.up("sm")]: {
-      marginLeft: theme.spacing(3),
-      width: "35ch",
-    },
-  }));
-
-  const StyledInputBase = styled(InputBase)(({ theme }) => ({
-    color: "inherit",
-    "& .MuiInputBase-input": {
-      padding: theme.spacing(1, 1, 1, 0),
-      paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-      transition: theme.transitions.create("width"),
-      width: "100%",
-      [theme.breakpoints.up("md")]: {
-        width: "20ch",
-      },
-    },
-  }));
-
+  const handleSearchInput = (e) => {
+    setSearchInput(e.target.value);
+  };
   return (
     <div className="navbar-main">
       <div className="navbar-links">
@@ -116,24 +89,19 @@ const Navbar = () => {
               <MenuCat />
             </li>
             <li id="searchList">
-              {" "}
-              <Search>
-                <StyledInputBase
-                  placeholder="Search…"
-                  value={searchInput}
-                  onChange={(e) => {
-                    setSearchInput(e.target.value);
-                    console.log(e.target.value);
-                  }}
-                />
-                <IconButton
-                  aria-label="search"
-                  color="primary"
-                  onClick={handleSearch}
-                >
-                  <SearchIcon />
-                </IconButton>
-              </Search>
+              <input
+                type="text"
+                value={searchInput}
+                onChange={handleSearchInput}
+                placeholder="Search..."
+              />
+              <IconButton
+                aria-label="search"
+                color="primary"
+                onClick={handleSearch}
+              >
+                <SearchIcon />
+              </IconButton>
             </li>
           </ul>
           {IsLoggedin ? <UserAccountMenu /> : <AccountMenu />}

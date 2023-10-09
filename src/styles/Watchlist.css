@@ -1,17 +1,18 @@
 .main-watchlist{
     background-color: rgb(38, 38, 38);
-    height: 695px;
+    height: 710px;
     width:100%;
 }
 .watchlist{
-    margin-top: 50px;
+    margin-top: 20px;
     padding: 10px;
     color: white;
-    margin-left: 100px;
+    margin-left: 50px;
 }
 .watchlist-container{
-    display: flex;
-    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(4,300px);
+    gap: 50px;
 }
 .watchList{
     margin-left: 50px;
