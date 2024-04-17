@@ -1,0 +1,12 @@
+.css-78trlr-MuiButtonBase-root-MuiIconButton-root, .css-i4bv87-MuiSvgIcon-root  {
+    color:white;
+}
+
+.css-1p823my-MuiListItem-root:hover {
+    background-color:grey;
+    color:white;
+}
+
+.searchList input{
+margin-left: 80px;
+}

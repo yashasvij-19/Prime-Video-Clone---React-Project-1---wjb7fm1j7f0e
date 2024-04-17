@@ -1,0 +1,25 @@
+.comingSoon{
+    background-color: #000;
+    color: #fff;
+    height: 100vh;
+}
+.comingSoon-logo{
+padding: 2%;
+}
+.comingSoon-logo p{
+    margin-top: 3%;
+    font-size: large;
+    cursor: pointer;
+}
+.comingSoon-logo img{
+    width: 6%;
+    background-color: blue;
+    padding: 1%;
+    border-radius: 10px;
+}
+.comingSoon-content{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-size: x-large;
+}

@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300&display=swap');
+
+.navbar-main{
+    /* position:absolute; */
+    top:0;
+    left: 0;
+    width:98%;
+    display: flex;
+    height: 20px;
+    padding:15px;
+    background-color: #00050d;
+    color: white;
+    justify-content: center;
+}
+.prime-video-logo{
+    width:100px;
+    cursor: pointer;
+}
+.navbar-links{
+    display: flex;
+}
+.navbar-links ul{
+    display: flex;
+    list-style-type: none;
+}
+.navbar-links li{
+    margin-top: -25px;
+    margin-left: 2rem;
+    cursor: pointer;
+}
+.navbar-links li:hover{
+    background-color: #1b3f805c;
+}
+.searchList input{
+width: 250px;
+height: 20px;
+font-size: medium;
+background-color: #36373a;
+color: whitesmoke;
+font-weight: bold;
+border: 1px solid black;
+border-radius: 10px;
+padding: 8px;
+}
+
+.noOption{
+    color: #aaa;
+    font-size: 1.2rem;
+    padding: 7px;
+}
+.catGrid{
+    display: flex;
+    padding: 30px;
+    width: 700px;
+  }
+  .catGrid1{
+    display: grid;
+    grid-template-columns: repeat(2, 200px); 
+  }
+  .catGrid2{
+    margin-left: 10%;
+    display: grid;
+    grid-template-columns: repeat(2, 80px); 
+  }
+  .catGrid2 h3{
+    display: flex;
+    width: 200px;
+  }
+.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation8.MuiMenu-paper.MuiPopover-paper.MuiMenu-paper.css-3dzjca-MuiPaper-root-MuiPopover-paper-MuiMenu-paper{  
+background-color: #191e25;
+color: white;
+}
+li.MuiButtonBase-root.MuiMenuItem-root.MuiMenuItem-gutters.MuiMenuItem-root.MuiMenuItem-gutters.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root:hover{
+    background-color: white;
+    color: black;
+}
+#signIn{
+    text-decoration: none;
+    color: white;
+}
+#signIn:hover{
+    text-decoration:none;
+    color: black;
+}
+.css-edop12-MuiButtonBase-root-MuiIconButton-root .css-2s90m6-MuiAvatar-root {
+    width: 35px;
+    height: 35px;
+}

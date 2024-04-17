@@ -1,0 +1,16 @@
+.main-movies{
+background-color: black;
+margin-left: -10px;
+margin-right: -10px;
+}
+.movies{
+    margin-top: -19px;
+}
+.theRows{
+    margin-top: 1%;
+    margin-left: 3%;
+    color: white;
+}
+.theRows span{
+    color: rgb(23, 112, 228);
+}

@@ -1,0 +1,174 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300&display=swap");
+body {
+  margin: 0;
+}
+.home-main{
+  background-color: #000;
+  min-width: 550px;
+}
+.home-first-image {
+  justify-content: center;
+}
+.home-welcome {
+  text-align: center;
+  color: white;
+  font-size: 2rem;
+  font-family: "Inter", sans-serif;
+  margin-bottom: 5%;
+}
+.home-welcome p {
+  margin-top: 30px;
+  font-size: 1.6rem;
+}
+
+.home-welcome Button {
+  font-family: "Inter", sans-serif;
+  font-weight: bolder;
+  padding: 10px;
+  width: 30rem;
+}
+.rent {
+  margin-top: 5px;
+  background-image: linear-gradient(to left, #000 40%, transparent 58%),
+    url("https://m.media-amazon.com/images/G/31/AmazonVideo/2021/X-site/MLP/TVOD/TVOD_MLP_Left.jpg");
+  background-repeat: no-repeat;
+  background-color: #000;
+  background-size: cover;
+  min-height: 690px;
+}
+.rent-text {
+  float: right;
+  margin-right: 1%;
+  margin-top: 15%;
+  color: white;
+  font-size: 2rem;
+  font-family: "Inter", sans-serif;
+}
+.rent-text p {
+  font-size: 1.5rem;
+  margin-bottom: 5%;
+  margin-top: 30px;
+}
+.rent Button {
+  padding: 10px;
+  width: 50%;
+}
+.image-grid {
+  margin-top: 2%;
+  padding: 20px;
+  background-color: white;
+  height: 700px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.image-grid-text {
+  margin-right: 2%;
+  margin-top: 10%;
+  color: black;
+  font-size: 2.2rem;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+.image-grid-text p {
+  text-align: center;
+  color: #282727e6;
+  font-size: 1.6rem;
+  font-weight: lighter;
+  margin-top: 30px;
+}
+.family {
+  background-image: linear-gradient(to right, #000 40%, transparent 58%),
+    url("https://m.media-amazon.com/images/G/01/digital/video/Magellan_MLP/IN-kids-30Jan._CB1517304519_.jpg");
+  margin-top: 5px;
+  background-repeat: no-repeat;
+  background-color: #000;
+  background-size: cover;
+  min-height: 580px;
+}
+.family-text {
+  position: relative;
+  top: 150px;
+  margin-left: 2%;
+  color: white;
+  font-size: 2.4rem;
+  font-family: "Inter", sans-serif;
+}
+.family-text p {
+  font-size: 1.6rem;
+  font-weight: 300;
+  margin-top: 30px;
+}
+.family-text Button {
+  padding: 3%;
+  width: 60%;
+}
+.fire-stick {
+  background-image: linear-gradient(to left, #000 40%, transparent 58%),
+    url("https://images-na.ssl-images-amazon.com/images/G/01/digital/video/Magellan_MLP/MLP_Template_Image_Left.jpg");
+  background-repeat: no-repeat;
+  background-color: #000;
+  background-size: cover;
+  min-height: 600px;
+}
+.fire-stick-text {
+  float: right;
+  margin-right: 3%;
+  margin-top: 7%;
+  color: white;
+  font-size: 2.4rem;
+  font-family: "Inter", sans-serif;
+}
+.fire-stick-text p {
+  margin-top: 30px;
+  font-size: 1.6rem;
+  margin-bottom: 4%;
+}
+.fire-stick-text Button {
+  padding: 3%;
+  width: 60%;
+}
+.footer {
+  font-size: 1rem;
+  width: auto;
+  padding: 1rem;
+  height: auto;
+  background-color: #343434;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.footer-text {
+  margin-top: 1%;
+  color: white;
+}
+.footer-text a {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.footer-text a:hover {
+  color: blue;
+}
+
+@media screen and (min-width: 1024px) {
+  .home-first-image {
+  margin-top: 80px;
+  }
+}
+@media screen and (max-width: 780px) {
+  .fire-stick-text button,.family-text button,.rent button{
+display: none;
+  }
+  .image-grid{
+    display: none;
+  }
+  .rent-text p,.family-text p,.fire-stick-text p{
+    font-size: 17px;
+  }
+  .rent-text,.family-text,.fire-stick-text{
+    font-size: x-large;
+  }
+}

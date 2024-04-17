@@ -1,0 +1,52 @@
+.main-searchResults {
+    background-color: rgb(38, 38, 38);
+    width: 100%;
+    min-height: 670px;
+  }
+  
+  .searchResults {
+    margin-top: 50px;
+    padding: 10px;
+    color: white;
+  }
+  
+  .searchlist-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
+    gap: 20px; 
+    padding: 10px;
+    justify-items: center; 
+  }
+  
+  .searchLists {
+    text-align: center;
+  }
+  
+  .searchLists img {
+    width: 200px;
+    height: 170px;
+    border-radius: 20px;
+  }
+  
+  #hoveredSearch{
+    border: 1px solid black;
+    height: 300px;
+    width: 100%; 
+    border-radius: 10px;
+    background-color: rgb(20, 20, 20);
+    padding: 15px;
+  }
+  
+  #hoveredSearch video {
+    position: relative;
+    top: -30px;
+    height: 200px;
+    width: 100%; 
+  }
+  
+  #hoveredSearch h2,
+  #hoveredSearch p {
+    position: relative;
+    top: -50px;
+  }
+  
