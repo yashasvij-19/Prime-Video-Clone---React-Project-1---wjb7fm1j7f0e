@@ -67,12 +67,12 @@ padding: 8px;
     width: 200px;
   }
 .MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation8.MuiMenu-paper.MuiPopover-paper.MuiMenu-paper.css-3dzjca-MuiPaper-root-MuiPopover-paper-MuiMenu-paper{  
-background-color: #191e25;
-color: white;
+background-color: red;
+color: green;
 }
 li.MuiButtonBase-root.MuiMenuItem-root.MuiMenuItem-gutters.MuiMenuItem-root.MuiMenuItem-gutters.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root:hover{
-    background-color: white;
-    color: black;
+    background-color: blue;
+    color: pink;
 }
 #signIn{
     text-decoration: none;
@@ -85,4 +85,8 @@ li.MuiButtonBase-root.MuiMenuItem-root.MuiMenuItem-gutters.MuiMenuItem-root.MuiM
 .css-edop12-MuiButtonBase-root-MuiIconButton-root .css-2s90m6-MuiAvatar-root {
     width: 35px;
     height: 35px;
+}
+.css-pwxzbm {
+background-color: #00050d;
+color:white;
 }

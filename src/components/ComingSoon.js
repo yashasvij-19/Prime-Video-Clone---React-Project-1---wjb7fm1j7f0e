@@ -9,7 +9,8 @@ const ComingSoon = () => {
         <img src="https://m.media-amazon.com/images/G/01/digital/video/web/Logo-min.png" />
         <p>
           <Link to="/" style={{ textDecoration: "none", color: "white" }}>
-            <i className="fa fa-arrow-left"></i>&nbsp;&nbsp;&nbsp;Back
+            <i className="fa fa-arrow-left"></i>
+            &nbsp;&nbsp;&nbsp;Back
           </Link>
         </p>
       </div>
