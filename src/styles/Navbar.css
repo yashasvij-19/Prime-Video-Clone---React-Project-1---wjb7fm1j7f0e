@@ -67,12 +67,12 @@ padding: 8px;
     width: 200px;
   }
 .MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation8.MuiMenu-paper.MuiPopover-paper.MuiMenu-paper.css-3dzjca-MuiPaper-root-MuiPopover-paper-MuiMenu-paper{  
-background-color: red;
-color: green;
+background-color: #00050d;
+color: #aaa;
 }
 li.MuiButtonBase-root.MuiMenuItem-root.MuiMenuItem-gutters.MuiMenuItem-root.MuiMenuItem-gutters.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root:hover{
-    background-color: blue;
-    color: pink;
+    background-color: white;
+    color: black;
 }
 #signIn{
     text-decoration: none;
