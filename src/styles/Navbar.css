@@ -90,3 +90,7 @@ li.MuiButtonBase-root.MuiMenuItem-root.MuiMenuItem-gutters.MuiMenuItem-root.MuiM
 background-color: #00050d;
 color:white;
 }
+.css-pwxzbm:hover {
+    background-color: white;
+    color: #00050d;
+}
