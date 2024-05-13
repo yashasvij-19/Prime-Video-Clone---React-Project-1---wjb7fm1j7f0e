@@ -64,14 +64,17 @@ export default function MenuCat() {
         }}
         sx={{ marginLeft: "-300px" }}
       >
-        <div className="catGrid">
+        <div
+          className="catGrid"
+          style={{ backgroundColor: "rgb(202, 201, 201)" }}
+        >
           <div className="catGrid1">
             <h3>Genres</h3>
             <br />
             {genres.map((e) => (
               <Link
                 to="/comingSoon"
-                style={{ textDecoration: "none", color: "white" }}
+                style={{ textDecoration: "none", color: "black" }}
               >
                 <MenuItem key={e} onClick={handleClose}>
                   {e}
@@ -85,7 +88,7 @@ export default function MenuCat() {
             {langs.map((e) => (
               <Link
                 to="/comingSoon"
-                style={{ textDecoration: "none", color: "white" }}
+                style={{ textDecoration: "none", color: "black" }}
               >
                 <MenuItem key={e} onClick={handleClose}>
                   {e}

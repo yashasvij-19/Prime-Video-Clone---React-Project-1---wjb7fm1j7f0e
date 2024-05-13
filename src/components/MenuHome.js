@@ -54,24 +54,24 @@ export default function MenuHome({ title, opt, optTwo, optThree }) {
           "aria-labelledby": "basic-button",
         }}
       >
-        <Link to="/" style={{ textDecoration: "none", color: "white" }}>
+        <Link to="/" style={{ textDecoration: "none", color: "black" }}>
           <MenuItem onClick={handleClose}>{opt}</MenuItem>
         </Link>
 
         {IsLoggedin ? (
-          <Link to="/movies" style={{ textDecoration: "none", color: "white" }}>
+          <Link to="/movies" style={{ textDecoration: "none", color: "black" }}>
             {" "}
             <MenuItem onClick={handleClose}>{optTwo}</MenuItem>
           </Link>
         ) : (
-          <Link to="/login" style={{ textDecoration: "none", color: "white" }}>
+          <Link to="/login" style={{ textDecoration: "none", color: "black" }}>
             <MenuItem onClick={handleClose}>{optTwo}</MenuItem>
           </Link>
         )}
 
         <Link
           to="/comingSoon"
-          style={{ textDecoration: "none", color: "white" }}
+          style={{ textDecoration: "none", color: "black" }}
         >
           <MenuItem onClick={handleClose}>{optThree}</MenuItem>
         </Link>

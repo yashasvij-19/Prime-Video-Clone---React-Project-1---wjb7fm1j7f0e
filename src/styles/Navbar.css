@@ -66,14 +66,6 @@ padding: 8px;
     display: flex;
     width: 200px;
   }
-.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation8.MuiMenu-paper.MuiPopover-paper.MuiMenu-paper.css-3dzjca-MuiPaper-root-MuiPopover-paper-MuiMenu-paper{  
-background-color: #00050d;
-color: #aaa;
-}
-li.MuiButtonBase-root.MuiMenuItem-root.MuiMenuItem-gutters.MuiMenuItem-root.MuiMenuItem-gutters.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root:hover{
-    background-color: white;
-    color: black;
-}
 #signIn{
     text-decoration: none;
     color: white;
@@ -86,11 +78,6 @@ li.MuiButtonBase-root.MuiMenuItem-root.MuiMenuItem-gutters.MuiMenuItem-root.MuiM
     width: 35px;
     height: 35px;
 }
-.css-pwxzbm {
-background-color: #00050d;
-color:white;
-}
-.css-pwxzbm:hover {
-    background-color: white;
-    color: #00050d;
+.css-3dzjca-MuiPaper-root-MuiPopover-paper-MuiMenu-paper , .css-6hp17o-MuiList-root-MuiMenu-list {
+background-color:  rgb(202, 201, 201);
 }

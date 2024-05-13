@@ -29,7 +29,7 @@ const Navbar = () => {
   const handleLogOut = () => {
     localStorage.removeItem(loggedMail);
     setLoggedMail("");
-    setIsLoggedin(false); // Update IsLoggedin state to false after logout
+    setIsLoggedin(false);
   };
 
   useEffect(() => {
