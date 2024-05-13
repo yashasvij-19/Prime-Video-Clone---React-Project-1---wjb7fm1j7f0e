@@ -64,10 +64,7 @@ export default function MenuCat() {
         }}
         sx={{ marginLeft: "-300px" }}
       >
-        <div
-          className="catGrid"
-          style={{ backgroundColor: "rgb(202, 201, 201)" }}
-        >
+        <div className="catGrid">
           <div className="catGrid1">
             <h3>Genres</h3>
             <br />
